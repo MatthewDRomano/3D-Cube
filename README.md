@@ -1,8 +1,11 @@
 # 3D-Cube
-### Object: Render a rotatable 3D Cube
+### Objective: Render a rotatable 3D Cube
 
 ![image](https://user-images.githubusercontent.com/120230187/236063567-4a69d9e7-0896-4f04-a8a4-cff2e5f90154.png)
 ![image](https://user-images.githubusercontent.com/120230187/236063651-d2f1bc64-22da-459c-b779-f4c27d56847b.png)
+
+This rotatable cube is in early developement as it can only rotate left and right at the moment. My current method for rotating in 3-dimensions is calculating the equation of an ellipse which the points can rotate on. The end goal is to have a fully rotatable cube which can rotate in any direction.
+
 
 
 ## Language
