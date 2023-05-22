@@ -12,21 +12,22 @@ This rotatable cube is in early developement as it can only rotate left and righ
 Java - VsCode
 
 ## Controls
-| Key |  Function  |
-| --- | ---------- |
-|  ←  | Rot. Left  |
-|  →  | Rot. Right |
-|  W  |  In devel. |
-|  S  |  In devel. | 
-|  E  |  In devel. |
-|  Q  |  In devel. | 
+| Key |  Function   |
+| --- | ----------- |
+|  W  | X-Axis  Up  |
+|  S  | X-Axis Down |
+|  A  | Y-Axis  Up  |
+|  D  | Y-Axis Down | 
+|  E  |Rot. x/y Axis|
+|  Q  |Rot. x/y Axis| 
 
 ## Features
 - [x] Array of 8 Points
 - [x] 3D Cube Display
 - [ ] Use of Projection Matrix 
-- [ ] Use of Rotation Matrix
-- [ ] Rotation Along X-Axis
+- [ ] Use of Rotation Matrix(es)
+- [x] Rotation Along X-Axis
 - [ ] Rotation Along Y-Axis
 - [ ] Rotation Along Z-Axis
 - [ ] Mouse Drag to Rotate
+- [ ] Practical Function
