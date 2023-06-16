@@ -7,7 +7,7 @@ public class Client
     public static void main(String[] args)
     {
         JPanel screen = createDisplay();
-        Cube e = new Cube(new Point(350,200), 200, 50);
+        Cube e = new Cube();
         //Ellipse e2 = new Ellipse(new Point(350,300), 200, 50);//
         gui.addKeyListener(new KeyListenerMod(e));
         //gui.addKeyListener(new KeyListenerMod(e2));//
@@ -17,8 +17,16 @@ public class Client
 
         while (true) // 'game' loop
         {
-            if (e.getRightStatus()) e.turn(true);
-            else if (e.getLeftStatus()) e.turn(false);
+            if (e.turningRight) e.rotate(Axis.Y, true);
+            if (e.turningLeft) e.rotate(Axis.Y, false);
+            if (e.turningDown) e.rotate(Axis.X, true);
+            if (e.turningUp) e.rotate(Axis.X, false);
+            if (e.faceLeft) e.rotate(Axis.Z, true);
+            if (e.faceRight) e.rotate(Axis.Z, false);
+
+            //if (e.getUpStatus()) e.rotate2(true);//
+            //else if (e.getDownStatus()) e.rotate2(false);//
+
             e.repaint();
 
             //if (e2.getRightStatus()) e2.turn(true);//
