@@ -1,4 +1,4 @@
-# 3D-Rubiks Cube
+# 3D-Cube
 ### Objective: Render a rotatable 3D Cube
 
 ![image](https://github.com/MatthewDRomano/3D-Cube/assets/120230187/8171c7d4-f884-429d-8d35-229316434e28)
