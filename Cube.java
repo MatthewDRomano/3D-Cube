@@ -10,12 +10,27 @@ public class Cube extends JPanel
     private Point[] points = new Point[8];
     private double aX = 0, aY = 0, aZ = 0;
 
+    //private double[][] projection = 
+    //{
+     //   {1, 0, 0},
+     //   {0, 1, 0}
+    //};
+
     public Cube()
     {
         setBackground(Color.black);
         setBounds(0, 0, 858, 525);//bounds = box around ellipse
         plotPoints();
     }
+
+    // public void setRightStatus(Boolean status) { turningRight = status; }
+    // public void setLeftStatus(Boolean status) { turningLeft = status; }
+    // public boolean getRightStatus() { return turningRight; }
+    // public boolean getLeftStatus() { return turningLeft; }
+    // public void setDownStatus(Boolean status) { turningDown = status; }//
+    // public void setUpStatus(Boolean status) { turningUp = status; }//
+    // public boolean getDownStatus() { return turningDown; }//
+    // public boolean getUpStatus() { return turningUp; }//
 
     public void plotPoints()
     {
@@ -87,6 +102,8 @@ public class Cube extends JPanel
             {z, 0, 0},
             {0, z, 0}
             };
+            
+            //Point r = new Point((int)rotated[0][0], (int)rotated[1][0]);
 
             double[][] projected2d = Matrix.multiply(perspective, rotated);
 
@@ -97,7 +114,7 @@ public class Cube extends JPanel
             Point p = new Point((int)projected2d[0][0], (int)projected2d[1][0]);
 
             points[i] = new Point(p.x + scrnCntr.x, p.y + scrnCntr.y);
-
+            //points[i] = p;
             updatedVectors[i].x = (int)rotated[0][0];
             updatedVectors[i].y = (int)rotated[1][0];
             updatedVectors[i].z = (int)rotated[2][0];
@@ -108,7 +125,26 @@ public class Cube extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-       
+        //g2.setColor(Color.white);
+        //for (Point p : points)
+            //g2.fillOval(p.x-10, p.y-10, 20, 20);
+
+        //g2.setStroke(new BasicStroke(2));
+        
+        //g2.drawLine(points[0].x, points[0].y, points[1].x, points[1].y);
+        //g2.drawLine(points[0].x, points[0].y, points[2].x, points[2].y);
+        //g2.drawLine(points[0].x, points[0].y, points[4].x, points[4].y);
+        //g2.drawLine(points[3].x, points[3].y, points[1].x, points[1].y);
+        //g2.drawLine(points[3].x, points[3].y, points[2].x, points[2].y);
+        // g2.drawLine(points[3].x, points[3].y, points[7].x, points[7].y);
+        // g2.drawLine(points[5].x, points[5].y, points[1].x, points[1].y);
+        // g2.drawLine(points[5].x, points[5].y, points[4].x, points[4].y);
+        // g2.drawLine(points[5].x, points[5].y, points[7].x, points[7].y);
+        // g2.drawLine(points[6].x, points[6].y, points[2].x, points[2].y);
+        // g2.drawLine(points[6].x, points[6].y, points[4].x, points[4].y);
+        // g2.drawLine(points[6].x, points[6].y, points[7].x, points[7].y);
+
+
         Vector highZ = new Vector(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
 
         for (int i = 0; i < updatedVectors.length; i++)
@@ -128,7 +164,26 @@ public class Cube extends JPanel
                 g2.setColor(faces[i].color);
                 g2.fillPolygon(faces[i].to2DPolygon());
             }   
-
+            
+            
+        //Draw three faces with largest z values
+//if (!one.contains(lowZ)) return;
+        //  g2.setColor(Color.blue);
+        //  int[] x = new int[4];
+        //  int[] y = new int[4];
+        //  for (int q = 0; q < 4; q++)
+        //  {
+        //      x[q] = points[q].x;
+        //      y[q] = points[q].y;
+        //  }
+        //  g2.fillPolygon(x, y, 3);
+        //  x = new int[4]; y = new int[4];
+        //  for (int q = 1; q < 4; q++)
+        //  {
+        //      x[q-1] = points[q].x;
+        //      y[q-1] = points[q].y;
+        //  }
+        //  g2.fillPolygon(x, y, 3);
     }    
     public class Face{
         public int[] ind; 
@@ -154,7 +209,7 @@ public class Cube extends JPanel
         {
             Polygon poly = new Polygon();
 
-            for (int q = 1; q < ind.length-1; q++)                        
+            for (int q = 1; q < ind.length-1; q++)
                 poly.addPoint(points[ind[q]].x, points[ind[q]].y);
             for (int q = 0; q < ind.length; q++)                        
                 poly.addPoint(points[ind[q]].x, points[ind[q]].y);
